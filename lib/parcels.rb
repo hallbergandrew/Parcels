@@ -7,11 +7,10 @@ class Parcel
   end
 
   def volume
-    volume = @length*@width*@height
-
+    @length * @width * @height
   end
 
   def cost_to_ship
-    cost_to_ship = self.volume*2
+    cost_to_ship = volume * 2
   end
 end

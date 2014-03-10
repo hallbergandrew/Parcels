@@ -1,6 +1,6 @@
 require './lib/parcels'
 
-@cost = []
+@parcels = []
 
   def main_menu
     puts "Press 'n' to calculate a new shipping cost"
@@ -30,7 +30,7 @@ require './lib/parcels'
     h = gets.chomp.to_i
 
     parcel = Parcel.new(l, w, h)
-    @cost << parcel.cost_to_ship
+    @parcels << parcel
     puts "Here is your cost!\n"
     puts "$" + parcel.cost_to_ship.to_s
     main_menu
@@ -38,8 +38,8 @@ require './lib/parcels'
 
   def list_shipping_costs
     puts "Here is a list of all your shipping estimates:"
-    @cost.each_with_index do |estimate, index|
-      puts "Package # " + (index+1).to_s + " =$" + estimate.to_s
+    @parcels.each_with_index do |parcel, index|
+      puts "Package # " + (index+1).to_s + " =$" + parcel.cost_to_ship.to_s
     end
     main_menu
   end
