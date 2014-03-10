@@ -1,12 +1,10 @@
 require './lib/parcels'
 
 @cost = []
-@numberarr = []
 
   def main_menu
     puts "Press 'n' to calculate a new shipping cost"
     puts "Press 'o' to display your current shipping costs"
-    # puts "Press 'a' to add another package"
     puts "Press 'x' to exit."
 
     main_choice = gets.chomp
@@ -25,16 +23,16 @@ require './lib/parcels'
 
   def add_dimensions
     puts "What is the length of your package?"
-    length = gets.chomp.to_i
+    l = gets.chomp.to_i
     puts "What is the width of your package?"
-    width = gets.chomp.to_i
+    w = gets.chomp.to_i
     puts "what is the height of your package?"
-    height = gets.chomp.to_i
+    h = gets.chomp.to_i
 
-    parcel = Parcel.new(length, width, height)
+    parcel = Parcel.new(l, w, h)
     @cost << parcel.cost_to_ship
     puts "Here is your cost!\n"
-    puts parcel.cost_to_ship
+    puts "$" + parcel.cost_to_ship.to_s
     main_menu
   end
 
